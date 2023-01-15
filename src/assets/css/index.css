@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer base{
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+}
+
+@layer components{
+    /* css for class nav item icon toggle close */
+    .nav-item-close{
+        @apply cursor-pointer mb-4 grid justify-start text-xl  capitalize text-slate-500 font-bold duration-200 transition-all;
+    }
+    /* nav item */
+    .nav-item{
+        @apply cursor-pointer grid justify-start text-lg  capitalize text-black font-bold duration-200 transition-all md:text-sm md:text-ecommerce-dark-grayish-blue md:font-[400]  md:place-items-center;
+    }
+}
