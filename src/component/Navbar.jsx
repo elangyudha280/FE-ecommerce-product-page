@@ -77,7 +77,7 @@ const Navbar = ()=>{
                 </div>
 
                 {/* // navbar cart list sneakers navbar */}
-                <div className="sneakers-list-cart absolute flex flex-col overflow-hidden right-0 z-[2] top-[110%] w-full  h-[190px] rounded-md shadow-[0_5px_12px_-3px_rgba(0,0,0,0.5)] bg-white md:top-[80%] md:w-[290px]">
+                <div className="sneakers-list-cart absolute flex flex-col overflow-hidden right-0 z-[2] top-[110%] w-full  h-[190px] rounded-md shadow-[0_10px_20px_-3px_rgba(0,0,0,0.4)] bg-white md:top-[80%] md:w-[290px]">
                     <h2 className="title-cart-sneaker border-b-[1px] border-b-slate-300 p-4 text-sm font-[600]">Cart</h2>
                 {/* navbar sneaker list empty */}
                 {/* <div className="sneaker-list-empty flex-1  grid place-items-center">
