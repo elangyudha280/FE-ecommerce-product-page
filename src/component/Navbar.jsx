@@ -32,7 +32,7 @@ const Navbar = ()=>{
 
     return (    
         <nav className="navbar relative w-full h-auto px-3 ">
-            <div className="nav-container mx-auto max-w-5xl h-[90px] border-b-[1px] border-b-slate-200 flex">
+            <div className="nav-container mx-auto max-w-5xl relative h-[90px] border-b-[1px] border-b-slate-200 flex">
 
                 {/* icon toggle sidebar */}
                 <div className="icon-toggle-sidebar relative pr-5 md:px-3  grid place-items-center md:hidden" onClick={ToggleShow}>
@@ -74,6 +74,11 @@ const Navbar = ()=>{
                 </button>
                 {/* img profile */}
                 <img src={imgAvatar} alt="" className="w-[35px] h-[35px] cursor-pointer duration-200 transition-all hover:shadow-[0_0_0_2px_#ff7d1a] rounded-full" />
+                </div>
+
+                {/* // navbar cart list sneakers navbar */}
+                <div className="sneakers-list-cart absolute right-0 top-[100%] w-[300px] h-[200px] rounded-md shadow-lg border-2 border-red-600">
+
                 </div>
             </div>
         </nav>
