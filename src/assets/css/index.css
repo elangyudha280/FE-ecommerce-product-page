@@ -12,6 +12,11 @@
 }
 
 @layer components{
+
+    /*  sneaker list cart  */
+    .sneakers-list-cart{
+        @apply absolute flex flex-col overflow-hidden right-0 z-[2] top-[110%] w-full  h-[190px] rounded-md transition-all duration-200 animate-[showTransform_0.2s_ease-in_forwards] shadow-[0_5px_10px_0_rgba(0,0,0,0.2)] bg-white md:top-[80%] md:w-[290px] ;
+    }
     /* css for class nav item icon toggle close */
     .nav-item-close{
         @apply cursor-pointer mb-4 grid justify-start text-xl  capitalize text-slate-500 font-bold duration-200 transition-all;

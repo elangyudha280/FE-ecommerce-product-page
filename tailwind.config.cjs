@@ -17,6 +17,12 @@ module.exports = {
         'ecommerce-grayish-blue':'hsl(220, 14%, 75%)',
         'ecommerce-light-grayish-blue':'hsl(223, 64%, 98%)',
         
+      },
+      keyframes: {
+        showTransform: {
+          '0%': { opacity:'0', transform: 'translateY(-20px)' },
+          '100%':{ opacity:'1', transform: 'translateY(0px)'},
+        }
       }
     },
   },
