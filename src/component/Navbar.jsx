@@ -78,7 +78,7 @@ const Navbar = ()=>{
 
 
     return (    
-        <nav className="navbar relative w-full h-auto px-3 ">
+        <nav className="navbar relative w-full h-auto px-3  ">
             <div className="nav-container mx-auto max-w-5xl relative h-[90px] border-b-[1px] border-b-slate-200 flex">
 
                 {/* icon toggle sidebar */}

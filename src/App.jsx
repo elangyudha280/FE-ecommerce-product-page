@@ -6,7 +6,7 @@ import Navbar from './component/Navbar'
 function App() {
 
   return (
-    <main className="App relative w-full h-[100vh] overflow-x-hidden overflow-y-auto font-Kumbh-Sans">
+    <main className="App relative w-full h-[100vh] grid overflow-x-hidden overflow-y-auto font-Kumbh-Sans">
       
     {/* component navbar */}
     <Navbar/>
