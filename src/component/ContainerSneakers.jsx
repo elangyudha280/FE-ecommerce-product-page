@@ -6,7 +6,7 @@
 const ContainerSneakers =()=>{
     return (
         <section className="container-sneakers border-2 w-full h-full flex-1 grid place-items-center mx-auto px-3">
-            <div className="sneakers-content grid grid-cols-[auto_1fr] grid-rows-[460px]  w-full xl:w-[1000px] ">
+            <div className="sneakers-content grid grid-cols-[auto_1fr] grid-rows-[460px]  w-full lg:w-[1000px] ">
                 <div className="container-img-sneakers w-[380px] h-full  flex flex-col md:gap-1">
                     <div className="img-thumb relative w-full  flex-1  overflow-hidden rounded-2xl">
                         <img src="./images/image-product-1.jpg" alt="" className="img-content-thumb object-cover object-top w-full h-full absolute select-none" />
