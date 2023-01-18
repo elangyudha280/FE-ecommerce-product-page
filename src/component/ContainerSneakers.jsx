@@ -30,11 +30,11 @@ const ContainerSneakers =()=>{
                 <div className="container-description-sneaker w-full h-full p-5 grid place-items-center  xs:py-7">
                 <div className="max-w-md  mx-auto">
                 <h2 className="title-company text-orange-400 font-[700] uppercase tracking-widest text-xs">Sneaker Company</h2>
-                    <h2 className="title-sneaker text-4xl xs:text-5xl mt-3 font-[700] capitalize text-ecommerce-very-dark-blue">fall limited edition sneakers</h2>
-                    <p className="description-sneakers mt-8 text-ecommerce-dark-grayish-blue font-[500]">
+                    <h2 className="title-sneaker max-[390px]:text-3xl text-4xl xs:text-5xl mt-3 font-[700] capitalize text-ecommerce-very-dark-blue">fall limited edition sneakers</h2>
+                    <p className="description-sneakers mt-5 xs:mt-8 text-ecommerce-dark-grayish-blue font-[500]">
                         These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole. they'll withstand everything the weather can offer.
                     </p>
-                    <div className="price-sneakers  flex mt-5 flex-row  xs:flex-col xs:items-left select-none">
+                    <div className="price-sneakers  flex  flex-row mt-5  xs:flex-col xs:items-left select-none">
                         <div className="flex-1 flex items-center gap-2">
                             <span className="discount-price text-2xl font-[700]">$125.00</span> 
                             <span className="discount px-2 p-1 text-sm rounded-md bg-orange-100 text-ecommerce-orange font-bold">50%</span>
