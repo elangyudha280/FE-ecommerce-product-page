@@ -7,6 +7,15 @@ import Navbar from './component/Navbar'
 
 function App() {
 
+  // state data sneakers 
+  let [dataSneaker,setDataSneakers] = useState()
+
+  // context data
+  let detail = {
+    dataSneaker,
+    setDataSneakers
+  }
+
   return (
     <main className="App relative w-full h-[100vh] flex flex-col overflow-x-hidden overflow-y-auto font-Kumbh-Sans">
       
