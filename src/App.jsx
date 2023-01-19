@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState,useContext } from 'react'
+import { dataSneakers } from './context/sneakersContext'
 import ContainerSneakers from './component/ContainerSneakers'
 
 // component navbar
