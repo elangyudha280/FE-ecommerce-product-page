@@ -26,7 +26,7 @@ const NavSneakerList = ()=>{
                         <div className="nav-description-sneakers-item flex-1 ">
                             <h5 className="title-descripition-sneakers capitalize font-[500] text-[0.8em] text-ecommerce-dark-grayish-blue">fall limited edition sneakers</h5>
                             <div className="price-sneaker-item  text-[0.8em] p-0 m-0">
-                                $<span className="int-price-sneaker-item text-ecommerce-dark-grayish-blue font-[500]">125.000</span> x <span className="count-sneaker text-ecommerce-dark-grayish-blue font-[500]">{countSneakers}</span> <span className="total-price text-ecommerce-very-dark-blue font-bold">${numberToDollar(125000*countSneakers)}</span>
+                                $<span className="int-price-sneaker-item text-ecommerce-dark-grayish-blue font-[500]">125.00</span> x <span className="count-sneaker text-ecommerce-dark-grayish-blue font-[500]">{countSneakers}</span> <span className="total-price text-ecommerce-very-dark-blue font-bold">${numberToDollar(125.00 * 3)}.00</span>
                             </div>
                         </div>
                         <button className="nav-delete-sneaker-item  px-1">
