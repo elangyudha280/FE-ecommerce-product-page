@@ -1,9 +1,18 @@
-import numberToDollar from "../../modules/numberToString.mjs";
-
-
+import { useContext,useEffect } from "react";
+import { contextSneakers } from "../../context/sneakersContext";
 
 
 const ContainerDescriptionSneakers = ()=>{
+
+    let {countSneakers,setCountSneakers} = useContext(contextSneakers);
+
+    useEffect(()=>{
+        if(countSneakers <= 0 ){
+            setCountSneakers((value => value=0))
+        }
+    },[countSneakers])
+ 
+
     return (
         <div className="container-description-sneaker w-full h-full p-5 grid place-items-center  xs:py-7">
         <div className="max-w-md  mx-auto">
@@ -14,19 +23,19 @@ const ContainerDescriptionSneakers = ()=>{
             </p>
             <div className="price-sneakers  flex  flex-row mt-5  xs:flex-col xs:items-left select-none">
                 <div className="flex-1 flex items-center gap-2">
-                    <span className="discount-price text-2xl font-[700]">$125.00</span> 
+                    <span className="discount-price text-2xl font-[700]">$125.000</span> 
                     <span className="discount px-2 p-1 text-sm rounded-md bg-orange-100 text-ecommerce-orange font-bold">50%</span>
                 </div>
-                <p className="normal-price  text-sm text-ecommerce-grayish-blue p-0 m-0 line-through font-[500]">$250.00</p>
+                <p className="normal-price  text-sm text-ecommerce-grayish-blue p-0 m-0 line-through font-[500]">$250.000</p>
             </div>
 
             <div className="button-action-sneakers flex flex-col h-auto mt-5 xs:flex-row  xs:h-[50px] gap-3">
                 <div className="count-sneakers w-full h-[40px] xs:h-auto xs:w-[175px] flex bg-ecommerce-light-grayish-blue rounded-md overflow-hidden">
-                    <button className="min-sneaker px-3  grid place-items-center">
+                    <button className="min-sneaker px-3  grid place-items-center" onClick={()=>{setCountSneakers((count)=> count-=1)}}>
                         <img src="./images/icon-minus.svg" alt="" />
                     </button>
-                    <span className="count-value flex-1 grid place-items-center">0</span>
-                    <button className="plus-sneaker px-3  grid place-items-center">
+                    <span className="count-value flex-1 grid place-items-center">{countSneakers}</span>
+                    <button className="plus-sneaker px-3  grid place-items-center" onClick={()=>{setCountSneakers((count)=> count+=1)}}>
                         <img src="./images/icon-plus.svg" alt="" />
                     </button>
                 </div>

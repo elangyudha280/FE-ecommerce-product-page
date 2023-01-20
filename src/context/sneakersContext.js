@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
 
-let dataSneakers = createContext()
+let contextSneakers = createContext()
 
-export {dataSneakers};
+export {contextSneakers};

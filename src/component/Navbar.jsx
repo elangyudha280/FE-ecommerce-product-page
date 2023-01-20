@@ -1,6 +1,7 @@
 
-import { useEffect,useRef,useState } from 'react'
-
+import { useEffect,useRef,useState,useContext } from 'react'
+import { contextSneakers } from '../context/sneakersContext'
+import numberToDollar from '../modules/numberToString.mjs'
 
 // component nav  sneaker empty
 const NavSneakerEmpty = ()=>{
@@ -13,6 +14,10 @@ const NavSneakerEmpty = ()=>{
 
 // component nav sneaker list 
 const NavSneakerList = ()=>{
+        
+    // DATA COUNT SNEAKERS
+    let {countSneakers} = useContext(contextSneakers)
+    
     return(
         
                 <div className="nav-sneakers-list-item p-4 flex-1  flex gap-5  flex-col">
@@ -21,7 +26,7 @@ const NavSneakerList = ()=>{
                         <div className="nav-description-sneakers-item flex-1 ">
                             <h5 className="title-descripition-sneakers capitalize font-[500] text-[0.8em] text-ecommerce-dark-grayish-blue">fall limited edition sneakers</h5>
                             <div className="price-sneaker-item  text-[0.8em] p-0 m-0">
-                                $<span className="int-price-sneaker-item text-ecommerce-dark-grayish-blue font-[500]">125.00</span> x <span className="count-sneaker text-ecommerce-dark-grayish-blue font-[500]">3</span> <span className="total-price text-ecommerce-very-dark-blue font-bold">$375.00</span>
+                                $<span className="int-price-sneaker-item text-ecommerce-dark-grayish-blue font-[500]">125.000</span> x <span className="count-sneaker text-ecommerce-dark-grayish-blue font-[500]">{countSneakers}</span> <span className="total-price text-ecommerce-very-dark-blue font-bold">${numberToDollar(125000*countSneakers)}</span>
                             </div>
                         </div>
                         <button className="nav-delete-sneaker-item  px-1">
@@ -41,11 +46,15 @@ const NavSneakerList = ()=>{
 // component navbar
 const Navbar = ()=>{
 
+    // DATA COUNT SNEAKERS
+    let {countSneakers} = useContext(contextSneakers)
+
     let navDevide = useRef();
     let navItem = useRef();
 
     // state untuk check cart sneaker
     let [checkCart,setCheckCart] = useState(false);
+
 
     // event show sidebar nav item
     let ToggleShow = ()=>{
@@ -87,7 +96,7 @@ const Navbar = ()=>{
                 </div>
                 {/* title navbar */}
                 <div href="#" className="title-navbar flex-1  grid items-center pr-7  p-0 m-0  font-[700] max- md:flex-grow-0 md:flex-shrink-0">
-                    <span className=" text-3xl min-[340px]:text-3xl p-0 m-0 mt-[-7px] md:mt-[-4px] md:text-2xl">sneakers</span>
+                    <span className=" text-2xl  min-[340px]:text-3xl p-0 m-0 mt-[-7px] md:mt-[-4px] md:text-2xl">sneakers</span>
                 </div>
                 {/* navbar item */}
                 <div ref={navDevide}  className="item-devide z-10  hidden fixed w-full h-full bg-[rgba(0,0,0,0.5)] m-0 p-0 left-0 top-0 md:flex-1 md:relative md:bg-white md:inline-block md:opacity-100 md:z-[1]" onClick={toggleHidden}>
@@ -115,10 +124,10 @@ const Navbar = ()=>{
 
 
                 {/* navbar profile */}
-                <div  className="navbar-profile  justify-self-end w-auto px-3 relaitve flex justify-center items-center gap-5 ">
+                <div  className="navbar-profile max-[370px]:flex-1  justify-self-end w-auto px-3 relaitve flex justify-center items-center gap-5 ">
                 {/* icon chad navbar */}
                 <button className="icon-card-navbar relative ">
-                    <span className="shoping-count-nav absolute py-[0.2px] text-white px-[7px] rounded-md top-[-8px] text-[8px] bg-ecommerce-orange ">1</span>
+                   {(countSneakers>0) &&  <span className="shoping-count-nav absolute py-[0.2px] text-white px-[7px] rounded-md top-[-8px] text-[8px] bg-ecommerce-orange ">{countSneakers}</span>}
                     <img src='./images/icon-cart.svg' className='icon-cart' alt="" />
                 </button>
                 {/* img profile */}
@@ -128,12 +137,11 @@ const Navbar = ()=>{
                 {/* // navbar cart list sneakers navbar */}
                 {
                     (checkCart) && 
-                    <div onClick={(e)=>{e.stopPropagation()}} className='sneakers-list-cart'>
+                    <div onClick={(e)=>{e.stopPropagation()}} className='sneakers-list-cart z-30'>
                         <h2 className="title-cart-sneaker border-b-[1px] border-b-slate-300 p-4 text-sm font-[600] ">Cart</h2>
-                
-                    <NavSneakerList/>
-
-                    
+                    {
+                        (countSneakers === 0 ) ? <NavSneakerEmpty/> : <NavSneakerList/>
+                    }
                     </div>
                 }
             </div>
