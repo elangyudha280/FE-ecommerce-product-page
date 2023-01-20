@@ -14,7 +14,7 @@ const ContainerDescriptionSneakers = ()=>{
  
 
     return (
-        <div className="container-description-sneaker w-full h-full p-5 grid place-items-center  xs:py-7">
+        <div className="container-description-sneaker  w-full h-full p-5 grid place-items-center  xs:py-7">
         <div className="max-w-md  mx-auto">
         <h2 className="title-company text-orange-400 font-[700] uppercase tracking-widest text-xs">Sneaker Company</h2>
             <h2 className="title-sneaker max-[390px]:text-3xl text-4xl xs:text-5xl mt-3 font-[700] capitalize text-ecommerce-very-dark-blue">fall limited edition sneakers</h2>

@@ -26,3 +26,10 @@
         @apply cursor-pointer grid justify-start text-lg  capitalize text-black font-bold duration-200 transition-all md:text-sm md:text-ecommerce-dark-grayish-blue md:font-[400]  md:place-items-center;
     }
 }
+
+@media (min-width:1000px) and (max-height:650px){
+    .container-sneakers{
+        padding-bottom:2em  !important;
+        padding-top:2em  !important;
+    }
+    }
