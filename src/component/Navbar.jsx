@@ -16,25 +16,25 @@ const NavSneakerEmpty = ()=>{
 const NavSneakerList = ()=>{
         
     // DATA COUNT SNEAKERS
-    let {countSneakers} = useContext(contextSneakers)
+    let {countSneakers,setCountSneakers} = useContext(contextSneakers)
     
     return(
         
                 <div className="nav-sneakers-list-item p-4 flex-1  flex gap-5  flex-col">
-                    <div className="nav-item-sneakers w-full flex gap-3 select-none ">
+                    <div className="nav-item-sneakers w-full flex gap-3 select-none relative">
                         <img src="./images/image-product-1.jpg" alt="" className="nav-img-sneakers w-[40px] h-full object-cover object-center rounded-[5px]" />
                         <div className="nav-description-sneakers-item flex-1 ">
                             <h5 className="title-descripition-sneakers capitalize font-[500] text-[0.8em] text-ecommerce-dark-grayish-blue">fall limited edition sneakers</h5>
                             <div className="price-sneaker-item  text-[0.8em] p-0 m-0">
-                                $<span className="int-price-sneaker-item text-ecommerce-dark-grayish-blue font-[500]">125.00</span> x <span className="count-sneaker text-ecommerce-dark-grayish-blue font-[500]">{countSneakers}</span> <span className="total-price text-ecommerce-very-dark-blue font-bold">${numberToDollar(125.00 * 3)}.00</span>
+                                $<span className="int-price-sneaker-item text-ecommerce-dark-grayish-blue font-[500]">125.00</span> x <span className="count-sneaker text-ecommerce-dark-grayish-blue font-[500]">{countSneakers}</span> <span className="total-price text-ecommerce-very-dark-blue font-bold">${numberToDollar(125.00 * countSneakers)}.00</span>
                             </div>
                         </div>
-                        <button className="nav-delete-sneaker-item  px-1">
+                        <button className="nav-delete-sneaker-item  px-1" onClick={()=>{setCountSneakers(value=>value=0)}}>
                             <img src="./images/icon-delete.svg" className='scale-90' alt="" />
                         </button>
                     </div>
 
-                    {/* button checkou sneakers */}
+                    {/* button checkouut sneakers */}
                     <button className="checkout-sneakers w-full h-full bg-ecommerce-orange text-white rounded-lg font-[500]">
                         checkout 
                     </button>
@@ -127,7 +127,8 @@ const Navbar = ()=>{
                 <div  className="navbar-profile max-[370px]:flex-1  justify-self-end w-auto px-3 relaitve flex justify-center items-center gap-5 ">
                 {/* icon chad navbar */}
                 <button className="icon-card-navbar relative ">
-                   {(countSneakers>0) &&  <span className="shoping-count-nav absolute py-[0.2px] text-white px-[7px] rounded-md top-[-8px] text-[8px] bg-ecommerce-orange ">{countSneakers}</span>}
+                   {(countSneakers>0) && 
+                    <span className="shoping-count-nav absolute py-[0.2px] text-white px-[7px] rounded-md top-[-8px] text-[8px] bg-ecommerce-orange ">{countSneakers}</span>}
                     <img src='./images/icon-cart.svg' className='icon-cart' alt="" />
                 </button>
                 {/* img profile */}
