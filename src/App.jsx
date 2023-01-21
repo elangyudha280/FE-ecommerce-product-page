@@ -1,9 +1,12 @@
-import { useState,useContext } from 'react'
+import { useState,useContext,useEffect } from 'react'
 import { contextSneakers } from './context/sneakersContext'
 import ContainerSneakers from './component/ContainerSneakers'
 
 // component navbar
 import Navbar from './component/Navbar'
+
+// LOADING
+import Loading from './component/loading'
 
 function App() {
 
@@ -15,6 +18,9 @@ function App() {
   // state count slider img
   let [countSliderImg,setCountSliderImg] = useState(1)
 
+  // check loading
+  let [loading,setLoading] = useState(true);
+
   // context data
   let detail = {
     countSneakers,
@@ -25,8 +31,19 @@ function App() {
     setCountSliderImg
   }
 
+
+    useEffect(() => {
+      window.addEventListener('load',()=>{
+        setLoading(false)
+      })
+  
+    }, [])
+    
+
   return (
     <contextSneakers.Provider value={detail}>
+     {
+      (loading)? <Loading/>:
       <main className="App relative w-full h-[100vh]  flex flex-col overflow-x-hidden overflow-y-auto font-Kumbh-Sans">
       
       {/* component navbar */}
@@ -35,6 +52,7 @@ function App() {
       {/* componanet container sneakers */}
       <ContainerSneakers/>
       </main>
+     }
     </contextSneakers.Provider>
   )
 }
