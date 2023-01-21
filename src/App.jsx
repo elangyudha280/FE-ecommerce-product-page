@@ -12,12 +12,17 @@ function App() {
 
   let [numberCount,setNumberCount] = useState(0)
 
+  // state count slider img
+  let [countSliderImg,setCountSliderImg] = useState(1)
+
   // context data
   let detail = {
     countSneakers,
     setCountSneakers,
     numberCount,
-    setNumberCount
+    setNumberCount,
+    countSliderImg,
+    setCountSliderImg
   }
 
   return (
