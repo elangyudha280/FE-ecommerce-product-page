@@ -38,7 +38,10 @@ const NavSneakerList = ()=>{
                     </div>
 
                     {/* button checkouut sneakers */}
-                    <button className="checkout-sneakers w-full h-full bg-ecommerce-orange text-white rounded-lg font-[500]">
+                    <button onClick={()=>{
+                        setCountSneakers(0)
+                        setNumberCount(0)
+                    }} className="checkout-sneakers w-full h-full bg-ecommerce-orange text-white rounded-lg font-[500]">
                         checkout 
                     </button>
                 </div>
