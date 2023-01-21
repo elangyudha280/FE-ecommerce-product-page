@@ -18,6 +18,9 @@ module.exports = {
         'ecommerce-light-grayish-blue':'hsl(223, 64%, 98%)',
         
       },
+      animation:{
+        showTransform:'showTransform 0.5s linear forwards'
+      },
       keyframes: {
         showTransform: {
           '0%': { opacity:'0', transform: 'translateY(-20px)' },
