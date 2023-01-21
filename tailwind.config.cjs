@@ -19,12 +19,17 @@ module.exports = {
         
       },
       animation:{
-        showTransform:'showTransform 0.5s linear forwards'
+        showTransform:'showTransform 1s cubic-bezier(1,-0.36,.02,1.36) forwards',
+        show:'show 0.6s cubic-bezier(1,-0.36,.02,1.36) forwards'
       },
       keyframes: {
         showTransform: {
           '0%': { opacity:'0', transform: 'translateY(-20px)' },
           '100%':{ opacity:'1', transform: 'translateY(0px)'},
+        },
+        show: {
+          '0%': { opacity:'0'},
+          '100%':{ opacity:'1'},
         }
       },
       screens:{
