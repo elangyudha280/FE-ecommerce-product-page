@@ -16,7 +16,7 @@ const NavSneakerEmpty = ()=>{
 const NavSneakerList = ()=>{
         
     // DATA COUNT SNEAKERS
-    let {countSneakers,setCountSneakers} = useContext(contextSneakers)
+    let {countSneakers,setCountSneakers,setNumberCount} = useContext(contextSneakers)
     
     return(
         
@@ -29,7 +29,10 @@ const NavSneakerList = ()=>{
                                 $<span className="int-price-sneaker-item text-ecommerce-dark-grayish-blue font-[500]">125.00</span> x <span className="count-sneaker text-ecommerce-dark-grayish-blue font-[500]">{countSneakers}</span> <span className="total-price text-ecommerce-very-dark-blue font-bold">${numberToDollar(125.00 * countSneakers)}.00</span>
                             </div>
                         </div>
-                        <button className="nav-delete-sneaker-item  px-1" onClick={()=>{setCountSneakers(value=>value=0)}}>
+                        <button className="nav-delete-sneaker-item  px-1" onClick={()=>{
+                            setCountSneakers(value=>value=0)
+                             setNumberCount(0)
+                            }}>
                             <img src="./images/icon-delete.svg" className='scale-90' alt="" />
                         </button>
                     </div>

@@ -10,10 +10,14 @@ function App() {
   // state data sneakers 
   let [countSneakers,setCountSneakers] = useState(0)
 
+  let [numberCount,setNumberCount] = useState(0)
+
   // context data
   let detail = {
     countSneakers,
-    setCountSneakers
+    setCountSneakers,
+    numberCount,
+    setNumberCount
   }
 
   return (
