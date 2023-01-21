@@ -61,7 +61,6 @@ const Navbar = ()=>{
 
     // event show sidebar nav item
     let ToggleShow = ()=>{
-        console.log('ok')
         let classHidden = 'hidden'
         let classTransform = 'translate-x-[-100%]';
         navDevide.current.classList.remove(classHidden)
