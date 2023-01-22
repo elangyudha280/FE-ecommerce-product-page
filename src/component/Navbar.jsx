@@ -129,7 +129,7 @@ const Navbar = ()=>{
 
 
                 {/* navbar profile */}
-                <div  className="navbar-profile max-[370px]:flex-1  justify-self-end w-auto px-3 relaitve flex justify-center items-center gap-5 ">
+                <div  className="navbar-profile max-[370px]:flex-1 max-[370px]:justify-end    justify-self-end w-auto md:px-3 relaitve flex justify-center items-center gap-5 ">
                 {/* icon chad navbar */}
                 <button className="icon-card-navbar relative ">
                    {(countSneakers>0) && 
