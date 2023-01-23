@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext,useEffect } from "react";
 import { contextSneakers } from "../../context/sneakersContext";
 
 
@@ -6,6 +6,9 @@ const ContainerDescriptionSneakers = ()=>{
 
     let {state,dispatch} = useContext(contextSneakers);
    
+    useEffect(()=>{
+        console.log(state)
+    })
  
 
     return (
