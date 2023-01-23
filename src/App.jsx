@@ -16,7 +16,7 @@ function App() {
       case 'addNumberCount':
           console.log('add')
         return {...state,countNumber:state.countNumber++};
-        // check apakah data typenya adalah minus count
+        // check apakah data typenya adalah minus 
       case 'minusNumberCount': 
         console.log('minus')
         return {...state,countNumber:(state.countNumber < 1) ? state.countNumber=0 : state.countNumber--};
