@@ -43,15 +43,21 @@ function App() {
 
   const [loading,setLoading] = useState(true);
 
-    useEffect(() => {
-      // loading
-      window.addEventListener('load',()=>{
-        document.querySelector('.loading').classList.add('opacity-0')
-        setTimeout(() => {
-          setLoading(false)
-        }, 100);
-      })
-    }, [])
+    
+  useEffect(() => {
+    const onPageLoad = () => {
+      setLoading(false);
+    };
+
+    if (document.readyState === 'complete') {
+      onPageLoad();
+    } else {
+      window.addEventListener('load', onPageLoad);
+
+      // Remove the event listener when component unmounts
+      return () => window.removeEventListener('load', onPageLoad);
+    }
+  }, []);
 
     
 
