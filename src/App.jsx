@@ -43,6 +43,7 @@ function App() {
 
 
     useEffect(() => {
+      // loading
       window.addEventListener('load',()=>{
         document.querySelector('.loading').classList.add('opacity-0')
         setTimeout(() => {
