@@ -1,4 +1,4 @@
-import { useState,useReducer,useContext,useEffect } from 'react'
+import { useState,useReducer,useEffect } from 'react'
 import { contextSneakers } from './context/sneakersContext'
 import ContainerSneakers from './component/ContainerSneakers'
 
@@ -10,40 +10,45 @@ import Loading from './component/loading'
 
 function reducer(state,action){
   switch(action.type){
+    // check apakah data type adalah addNumberCount
     case 'addNumberCount': return {...state,countNumber:state.countNumber++};
+    // check apakah data typenya adalah minus count
     case 'minusNumberCount': return {...state,countNumber:(state.countNumber < 1) ? state.countNumber=0 : state.countNumber--};
+    // check apakah data typenya adalah sumCountSneakers
     case 'sumCountSneakers': 
-    return {countSneaker:state.countSneaker+state.countNumber,countNumber:0};
+    return {...state,countSneaker:state.countSneaker+state.countNumber,countNumber:0};
+    // check apakah data typenya adalah deleteCount
     case 'deleteCount':
       return {...state,countSneaker:0}
+    // check apakah data type yg dikirimkan adalah changeThumbImg
+    case 'changeThumbImg':{
+      return {...state,countSliderImg:state.countSliderImg = action.dataId}
+    }
   }
 }
 
 function App() {
 
   // state data sneakers 
-  let [state,dispatch] = useReducer(reducer,{countSneaker:0,countNumber:0})
-
-  // state count slider img
-  let [countSliderImg,setCountSliderImg] = useState(1)
+  let [state,dispatch] = useReducer(reducer,{countSneaker:0,countNumber:0,countSliderImg:1})
 
   // check loading
-  let [loading,setLoading] = useState(false);
+  let [loading,setLoading] = useState(true);
 
   // context data
   let detail = {
     state,
     dispatch,
-    countSliderImg,
-    setCountSliderImg
   }
 
 
     useEffect(() => {
       window.addEventListener('load',()=>{
-        setLoading(false)
+        document.querySelector('.loading').classList.add('opacity-0')
+        setTimeout(() => {
+          setLoading(false)
+        }, 100);
       })
-  
     }, [])
     
 

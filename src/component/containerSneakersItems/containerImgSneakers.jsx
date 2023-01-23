@@ -1,5 +1,5 @@
 
-import { useState,useEffect,useContext } from "react";
+import { useState,useContext } from "react";
 import { contextSneakers } from "../../context/sneakersContext";
 
 
@@ -7,7 +7,8 @@ import { contextSneakers } from "../../context/sneakersContext";
 const ImgThumbDesktop  = ()=>{
     
 
-    let {countSliderImg,setCountSliderImg} = useContext(contextSneakers);
+    let {state,dispatch} = useContext(contextSneakers);
+   
 
      // event thumb item
      const tumb_active = (e)=>{
@@ -27,14 +28,14 @@ const ImgThumbDesktop  = ()=>{
             })
             e.target.parentElement.classList.add('thumb-item-shadow')
             e.target.classList.add('opacity-40')
-            setCountSliderImg(parseInt(e.target.dataset.countImg))
+            dispatch({type:'changeThumbImg', dataId:parseInt(e.target.dataset.countImg)})
         }
     } 
 
     return (
         <div className="container-img-sneakers w-full h-[350px] hidden xs:flex flex-col xs:w-[440px]  xs:h-[400px]  xs:mx-auto xs:gap-1 lg:h-full">
         <div className="img-thumb relative w-full  flex-1  overflow-hidden xs:rounded-2xl grid place-items-center">
-            <img src={`./images/image-product-${countSliderImg}.jpg`} alt="" className="img-content-thumb  object-cover object-center  w-full h-full absolute select-none xs:object-top" />
+            <img src={`./images/image-product-${state.countSliderImg}.jpg`} alt="" className="img-content-thumb  object-cover object-center  w-full h-full absolute select-none xs:object-top" />
         </div>
         <div onClick={tumb_active} className="item-tumb w-full pt-2 px-2 hidden   items-center justify-around xs:flex  ">
                 <div className="thumb-item thumb-item-shadow group w-[70px]  rounded-lg cursor-pointer overflow-hidden h-[70px] hover:shadow-[0_0_0_2px_#ff7d1a] ">
