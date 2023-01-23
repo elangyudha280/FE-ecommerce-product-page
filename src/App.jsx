@@ -19,9 +19,9 @@ function reducer(state,action){
     case 'deleteCount':
       return {...state,countSneaker:0}
     // check apakah data type yg dikirimkan adalah changeThumbImg
-    case 'changeThumbImg':{
+    case 'changeThumbImg':
       return {...state,countSliderImg:state.countSliderImg = action.dataId}
-    }
+    
   }
 }
 
