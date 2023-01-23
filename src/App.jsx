@@ -5,8 +5,6 @@ import ContainerSneakers from './component/ContainerSneakers'
 // component navbar
 import Navbar from './component/Navbar'
 
-// LOADING
-import Loading from './component/loading'
 
 function reducer(state,action){
   switch(action.type){
@@ -32,8 +30,6 @@ function App() {
   // state data sneakers 
   let [state,dispatch] = useReducer(reducer,{countSneaker:0,countNumber:0,countSliderImg:1})
 
-  // check loading
-  let [loading,setLoading] = useState(true);
 
   // context data
   let detail = {
@@ -42,20 +38,12 @@ function App() {
   }
 
 
-    useEffect(() => {
-      window.addEventListener('load',()=>{
-        document.querySelector('.loading').classList.add('opacity-0')
-        setTimeout(() => {
-          setLoading(false)
-        }, 100);
-      })
-    }, [])
+
     
 
   return (
     <contextSneakers.Provider value={detail}>
-     {
-      (loading)? <Loading/>:
+
       <main className="App relative w-full h-[100vh]  flex flex-col overflow-x-hidden overflow-y-auto font-Kumbh-Sans">
       
       {/* component navbar */}
@@ -64,7 +52,7 @@ function App() {
       {/* componanet container sneakers */}
       <ContainerSneakers/>
       </main>
-     }
+     
     </contextSneakers.Provider>
   )
 }
