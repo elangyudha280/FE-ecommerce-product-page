@@ -16,7 +16,7 @@ const NavSneakerEmpty = ()=>{
 const NavSneakerList = ()=>{
         
     // DATA COUNT SNEAKERS
-    let {countSneakers,setCountSneakers,setNumberCount} = useContext(contextSneakers)
+    let {state,dispatch} = useContext(contextSneakers);
     
     return(
         
@@ -26,12 +26,11 @@ const NavSneakerList = ()=>{
                         <div className="nav-description-sneakers-item flex-1 ">
                             <h5 className="title-descripition-sneakers capitalize font-[500] text-[0.8em] text-ecommerce-dark-grayish-blue">fall limited edition sneakers</h5>
                             <div className="price-sneaker-item  text-[0.8em] p-0 m-0">
-                                $<span className="int-price-sneaker-item text-ecommerce-dark-grayish-blue font-[500]">125.00</span> x <span className="count-sneaker text-ecommerce-dark-grayish-blue font-[500]">{countSneakers}</span> <span className="total-price text-ecommerce-very-dark-blue font-bold">${numberToDollar(125.00 * countSneakers)}.00</span>
+                                $<span className="int-price-sneaker-item text-ecommerce-dark-grayish-blue font-[500]">125.00</span> x <span className="count-sneaker text-ecommerce-dark-grayish-blue font-[500]">{state.countSneaker}</span> <span className="total-price text-ecommerce-very-dark-blue font-bold">${numberToDollar(125.00 * state.countSneaker)}.00</span>
                             </div>
                         </div>
                         <button className="nav-delete-sneaker-item  px-1" onClick={()=>{
-                            setCountSneakers(value=>value=0)
-                             setNumberCount(0)
+                            dispatch({type:'deleteCount'})
                             }}>
                             <img src="./images/icon-delete.svg" className='scale-90' alt="" />
                         </button>
@@ -39,8 +38,7 @@ const NavSneakerList = ()=>{
 
                     {/* button checkouut sneakers */}
                     <button onClick={()=>{
-                        setCountSneakers(0)
-                        setNumberCount(0)
+                       dispatch({type:'deleteCount'})
                     }} className="checkout-sneakers w-full h-full bg-ecommerce-orange text-white rounded-lg font-[500]">
                         checkout 
                     </button>
@@ -53,7 +51,7 @@ const NavSneakerList = ()=>{
 const Navbar = ()=>{
 
     // DATA COUNT SNEAKERS
-    let {countSneakers} = useContext(contextSneakers)
+    let {state} = useContext(contextSneakers);
 
     let navDevide = useRef();
     let navItem = useRef();
@@ -132,8 +130,8 @@ const Navbar = ()=>{
                 <div  className="navbar-profile max-[370px]:flex-1 max-[370px]:justify-end    justify-self-end w-auto md:px-3 relaitve flex justify-center items-center gap-5 ">
                 {/* icon chad navbar */}
                 <button className="icon-card-navbar relative ">
-                   {(countSneakers>0) && 
-                    <span className="shoping-count-nav absolute py-[0.2px] text-white px-[7px] rounded-md top-[-8px] text-[8px] bg-ecommerce-orange ">{countSneakers}</span>}
+                   {(state.countSneaker>0) && 
+                    <span className="shoping-count-nav absolute py-[0.2px] text-white px-[7px] rounded-md top-[-8px] text-[8px] bg-ecommerce-orange ">{state.countSneaker}</span>}
                     <img src='./images/icon-cart.svg' className='icon-cart' alt="" />
                 </button>
                 {/* img profile */}
@@ -146,7 +144,7 @@ const Navbar = ()=>{
                     <div onClick={(e)=>{e.stopPropagation()}} className='sneakers-list-cart z-30'>
                         <h2 className="title-cart-sneaker border-b-[1px] border-b-slate-300 p-4 text-sm font-[600] ">Cart</h2>
                     {
-                        (countSneakers === 0 ) ? <NavSneakerEmpty/> : <NavSneakerList/>
+                        (state.countSneaker === 0 ) ? <NavSneakerEmpty/> : <NavSneakerList/>
                     }
                     </div>
                 }

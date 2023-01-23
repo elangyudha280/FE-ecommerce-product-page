@@ -1,4 +1,4 @@
-import { useState,useContext,useEffect } from 'react'
+import { useState,useReducer,useContext,useEffect } from 'react'
 import { contextSneakers } from './context/sneakersContext'
 import ContainerSneakers from './component/ContainerSneakers'
 
@@ -8,25 +8,32 @@ import Navbar from './component/Navbar'
 // LOADING
 import Loading from './component/loading'
 
+function reducer(state,action){
+  switch(action.type){
+    case 'addNumberCount': return {...state,countNumber:state.countNumber++};
+    case 'minusNumberCount': return {...state,countNumber:(state.countNumber < 1) ? state.countNumber=0 : state.countNumber--};
+    case 'sumCountSneakers': 
+    return {countSneaker:state.countSneaker+state.countNumber,countNumber:0};
+    case 'deleteCount':
+      return {...state,countSneaker:0}
+  }
+}
+
 function App() {
 
   // state data sneakers 
-  let [countSneakers,setCountSneakers] = useState(0)
-
-  let [numberCount,setNumberCount] = useState(0)
+  let [state,dispatch] = useReducer(reducer,{countSneaker:0,countNumber:0})
 
   // state count slider img
   let [countSliderImg,setCountSliderImg] = useState(1)
 
   // check loading
-  let [loading,setLoading] = useState(true);
+  let [loading,setLoading] = useState(false);
 
   // context data
   let detail = {
-    countSneakers,
-    setCountSneakers,
-    numberCount,
-    setNumberCount,
+    state,
+    dispatch,
     countSliderImg,
     setCountSliderImg
   }
