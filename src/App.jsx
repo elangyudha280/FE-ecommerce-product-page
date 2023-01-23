@@ -44,7 +44,6 @@ function App() {
     const onPageLoad = () => {
       setLoading(false);
     };
-
     if (document.readyState === 'complete') {
       onPageLoad();
     } else {
@@ -62,14 +61,14 @@ function App() {
 
       {
         (loading)? <Loading/> :
-        (<main className="App relative w-full h-[100vh]  flex flex-col overflow-x-hidden overflow-y-auto font-Kumbh-Sans">
+        <main className="App relative w-full h-[100vh]  flex flex-col overflow-x-hidden overflow-y-auto font-Kumbh-Sans">
       
         {/* component navbar */}
         <Navbar/>
     
         {/* componanet container sneakers */}
         <ContainerSneakers/>
-        </main>)
+        </main>
       }
      
     </contextSneakers.Provider>
