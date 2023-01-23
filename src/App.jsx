@@ -4,6 +4,7 @@ import ContainerSneakers from './component/ContainerSneakers'
 
 // component navbar
 import Navbar from './component/Navbar'
+import Loading from './component/loading';
 
 
 function reducer(state,action){
@@ -37,21 +38,39 @@ function App() {
     dispatch,
   }
 
+  const [loading,setLoading] = useState(true);
 
+  useEffect(() => {
+    const onPageLoad = () => {
+      setLoading(false);
+    };
+
+    if (document.readyState === 'complete') {
+      onPageLoad();
+    } else {
+      window.addEventListener('load', onPageLoad);
+
+      // Remove the event listener when component unmounts
+      return () => window.removeEventListener('load', onPageLoad);
+    }
+  }, []);
 
     
 
   return (
     <contextSneakers.Provider value={detail}>
 
-      <main className="App relative w-full h-[100vh]  flex flex-col overflow-x-hidden overflow-y-auto font-Kumbh-Sans">
+      {
+        (loading)? <Loading/> :
+        (<main className="App relative w-full h-[100vh]  flex flex-col overflow-x-hidden overflow-y-auto font-Kumbh-Sans">
       
-      {/* component navbar */}
-      <Navbar/>
-  
-      {/* componanet container sneakers */}
-      <ContainerSneakers/>
-      </main>
+        {/* component navbar */}
+        <Navbar/>
+    
+        {/* componanet container sneakers */}
+        <ContainerSneakers/>
+        </main>)
+      }
      
     </contextSneakers.Provider>
   )
