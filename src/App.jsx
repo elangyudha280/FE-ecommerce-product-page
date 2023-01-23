@@ -11,9 +11,9 @@ import Loading from './component/loading'
 function reducer(state,action){
   switch(action.type){
     // check apakah data type adalah addNumberCount
-    case 'addNumberCount': return {...state,countNumber:state.countNumber++};
+    case 'addNumberCount': return {...state,countNumber:state.countNumber+=1};
     // check apakah data typenya adalah minus count
-    case 'minusNumberCount': return {...state,countNumber:(state.countNumber < 1) ? state.countNumber=0 : state.countNumber--};
+    case 'minusNumberCount': return {...state,countNumber:(state.countNumber < 1) ? state.countNumber=0 : state.countNumber+=1};
     // check apakah data typenya adalah sumCountSneakers
     case 'sumCountSneakers': 
     return {...state,countSneaker:state.countSneaker+state.countNumber,countNumber:0};
